@@ -1,10 +1,10 @@
 import './App.css'
-
+import AllEmployeesContainer from './components/containers/AllEmployeesContainer'
 function App() {
   return (
- <h1>Welcome</h1>
-     
-  )
+  <AllEmployeesContainer/>
+  );
 }
 
 export default App
+
