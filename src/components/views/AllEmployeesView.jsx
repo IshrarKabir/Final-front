@@ -1,22 +1,10 @@
 import { Link } from "react-router-dom";
-
-function AllEmployeesView({employees}) {
-  if (!employees.length) {
+function AllEmployeesView(props) {
     return (
-      <div>There are no employees.</div>
-    );
-  }
-  return (
     <>
-      <ul>
-        {employees.map((user, idx) => (
-          <li key={user.id}>Employee #{idx+1}: {user.firstname}</li>
-        ))}
-      </ul>
-      <Link to={`/`}><button>Back to Home</button></Link>
+    <h4>ALL EMPLOYEES</h4>
+    <Link to={'/'}><button>Back to Home</button></Link>
     </>
-  );
-
-}
-
+    );
+    }
 export default AllEmployeesView;
