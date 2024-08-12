@@ -8,4 +8,4 @@ function AllTasksView(props) {
         </>
         );
 }
-export default AllTaskView;
+export default AllTasksView;
