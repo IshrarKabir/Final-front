@@ -1,10 +1,9 @@
 import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from "react-redux";
-import { fetchEmployeess, editEmployees } from '../../store/employeesSlice';
-import { fetchEmployees } from '../../store/employeesSlice';
+import { fetchEmployees, editEmployee } from '../../store/employeesSlice';
 import { useEffect } from 'react';
 
-import EditEmployeesView from '../views/EditEmployeeView';
+import EditEmployeeView from '../views/EditEmployeeView';
 
 function EditEmployeesContainer() {
   let { employeeId } = useParams(); //get id from URL
@@ -36,10 +35,9 @@ function EditEmployeesContainer() {
     // Create the Employees object and dispatch the `addEmployees` thunk
     const updates = {
         ...employee,
-        name: formJson.name,
-        position: formJson.position,
+        firstname: formJson.firstname,
+        lastname: formJson.lastname,
         department: formJson.department,
-        active: formJson.active === "true" ? true : false,
       };
   
       dispatch(editEmployee(updates));

@@ -1,4 +1,5 @@
-import React from 'react';
+// import React from 'react';
+import { Link } from "react-router-dom";
 
 function EditEmployeeView({ employee, handleSubmit }) {
   if (!employee) {
@@ -8,29 +9,30 @@ function EditEmployeeView({ employee, handleSubmit }) {
   return (
     <form onSubmit={handleSubmit}>
       <div>
-        <label htmlFor="name">Name:</label>
+        <label htmlFor="firstname">First name: </label>
         <input
           type="text"
           id="name"
-          name="name"
-          defaultValue={employee.name}
+          name="firstname"
+          defaultValue={employee.firstname}
           required
         />
       </div>
 
       <div>
-        <label htmlFor="position">Position:</label>
+        <label htmlFor="lastname">Last name: </label>
         <input
           type="text"
-          id="position"
-          name="position"
-          defaultValue={employee.position}
+          id="name"
+          name="lasttname"
+          defaultValue={employee.lastname}
           required
         />
       </div>
 
+
       <div>
-        <label htmlFor="department">Department:</label>
+        <label htmlFor="department">Department: </label>
         <input
           type="text"
           id="department"
@@ -38,14 +40,6 @@ function EditEmployeeView({ employee, handleSubmit }) {
           defaultValue={employee.department}
           required
         />
-      </div>
-
-      <div>
-        <label htmlFor="active">Active:</label>
-        <select id="active" name="active" defaultValue={employee.active ? 'true' : 'false'}>
-          <option value="true">Yes</option>
-          <option value="false">No</option>
-        </select>
       </div>
 
       <button type="submit">Save Changes</button>

@@ -5,6 +5,11 @@ export function employeesReducer(state = initialState, action) {
     switch (action.type) {
       case 'employees/employeesLoaded':
         return action.payload;
+      case "employees/employeeAdded":
+        return [...state, action.payload];
+        case 'employees/employeesDeleted':
+          console.log(state.filter(employee => employee.id!==action.payload))
+          return state.filter(employee => employee.id!==action.payload);
       default:
         return state;
     }
@@ -26,11 +31,36 @@ export const fetchEmployees = () => async (dispatch) => {
 };
 
 //DELETE EMPLOYEE
-export const deleteEmployee = (employeeId) => async (dispatch) => {
+export const deleteEmployee = employeeId => async dispatch => {
   try {
-    await axios.delete(`/api/employees/${employeeId}`); 
-    dispatch(employeeDeleted(employeeId)); 
+    // await axios.delete(`/api/employees/${employeeId}`); 
+    await axios.delete(`${PATH}/${employeeId}`);
+    dispatch({type: 'employees/employeesDeleted', payload: employeeId});
+    // dispatch(employeeDeleted(employeeId)); 
   } catch (err) {
-    console.error("Error deleting employee:", err);
+    console.error (err);
+  }
+};
+
+//Add employee
+
+export const addEmployee = (employeeData) => async (dispatch) => {
+  try {
+    const res = await axios.post(`${PATH}`, employeeData);
+    dispatch({ type: 'employees/employeeAdded', payload: res.data });
+  } catch (err) {
+    console.error(err);
+  }
+};
+
+
+/* EDIT EMPLOYEE */
+export const editEmployee = employee => async dispatch => {
+  try {
+    let res = await axios.put(`${PATH}/${employee.id}`, employee);
+    //res.data is the updated course
+    dispatch({type: 'employees/employeeUpdated', payload: res.data});
+  } catch(err) {
+    console.error(err);
   }
 };
