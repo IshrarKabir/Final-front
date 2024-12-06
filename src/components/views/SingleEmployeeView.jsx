@@ -23,7 +23,9 @@ function SingleEmployeeView({ employee, tasks }) {
       ) : (
         <p>No tasks assigned.</p>
       )}
+      <h3><Link to={`/employees/${employee.id}/edit`}>Edit Task Information</Link> </h3>
     </div>
+    
   );
 }
 

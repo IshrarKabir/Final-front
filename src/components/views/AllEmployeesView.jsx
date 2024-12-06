@@ -32,10 +32,14 @@ let liStyleLastChild = {
 };
 
 
-function AllEmployeesView({employees}) {
+function AllEmployeesView({employees, deleteEmployee}) {
   if (!employees.length) {
     return (
+      <> 
+      <Link to={`/`}><button style={{margin: "8px"}}>Back to Home</button></Link>
+      <Link to={`/employees/new`}><button style={{margin: "8px"}}>Add Employee</button></Link>
       <div>There are no employees.</div>
+      </>
     );
   }
   return (
@@ -50,8 +54,8 @@ function AllEmployeesView({employees}) {
             <div key={employee.id} style={styleBool}>
               <h4>Employee #{idx+1}: <Link to={`/employees/${employee.id}`}>{employee.firstname} {employee.lastname}</Link></h4>
               <h5>Depertment: {employee.department} </h5>
-              {/* <button onClick={() => deleteEmployee(employee.id)}>Delete</button>  */}
-              <button onClick={() => onDelete(employee.id)} style={{ color: "red", marginLeft: "10px" }}>X</button>
+              <button onClick={() => deleteEmployee(employee.id)}>X</button> 
+              {/* <button onClick={() => deleteEmployee(employee.id)} style={{ color: "red", marginLeft: "10px" }}>X</button> */}
             </div>
           );
         })}
