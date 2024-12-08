@@ -43,6 +43,9 @@ function EditEmployeeView({ employee, handleSubmit }) {
       </div>
 
       <button type="submit">Save Changes</button>
+      <Link to="../employees">
+    <button type="button">Back to Employees</button>
+    </Link>
     </form>
   );
 }
