@@ -14,6 +14,19 @@ export function employeesReducer(state = initialState, action) {
         return state;
     }
 };
+export function tasksReducer(state = initialTaskState, action) {
+  switch (action.type) {
+    case 'tasks/taskAssigned':
+      return state.map((task) =>
+        task.id === action.payload.taskId
+          ? { ...task, employeeId: action.payload.employeeId }
+          : task
+      );
+    default:
+      return state;
+  }
+}
+
 
 //API calls go here
 import axios from "axios";
@@ -64,3 +77,4 @@ export const editEmployee = employee => async dispatch => {
     console.error(err);
   }
 };
+

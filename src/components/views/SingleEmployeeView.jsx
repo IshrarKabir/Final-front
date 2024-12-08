@@ -15,15 +15,15 @@ function SingleEmployeeView({ employee, tasks }) {
       {tasks.length > 0 ? (
         <ul>
           {tasks.map((task) => (
-            <li key={task.id}>
-              <Link to={`/tasks/${task.id}`}>{task.name}</Link>
+            <li key={todo.id}>
+              <Link to={`/tasks/${todo.id}`}>{todo.content}</Link>
             </li>
           ))}
         </ul>
       ) : (
         <p>No tasks assigned.</p>
       )}
-      <h3><Link to={`/employees/${employee.id}/edit`}>Edit Task Information</Link> </h3>
+      <h3><Link to={`/employees/${employee.id}/edit`}>Edit Employee Information</Link> </h3>
     </div>
     
   );
