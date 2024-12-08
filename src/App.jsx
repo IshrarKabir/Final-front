@@ -8,7 +8,8 @@ function App() {
       <img src="https://blogimage.vantagecircle.com/vcblogimage/en/2024/07/VC_Featured-Image-Light-1.png" /></div>
       <h1>WELCOME</h1>
 
-      <Link to={`employees`}><button>All Employees</button></Link>
+      <Link to={`employees`} className="button-spacing">
+        <button>All Employees</button></Link>
 
       <Link to={`tasks`}><button>All Tasks</button></Link>
     </>
